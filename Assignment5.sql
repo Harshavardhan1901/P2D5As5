@@ -1,5 +1,6 @@
 create database Assesment05Db
 use Assesment05Db
+drop database Assesment05Db
 
 create schema bank
 create table bank.Customer
@@ -39,7 +40,7 @@ declare @pwd nvarchar(50)
 declare @msg nvarchar(50)
 
 select @id=Cid,@name=CName,@mail=CEmail,@contact=Contact,@pwd=(right(CName,2)+cast(CId as nvarchar(10))+left(Contact,2)) from inserted
-select @msg='you NetBanking password is : '+@pwd+'it is valid up to 2 days only. Update it!!!!!!!'
+select @msg='Your net banking password is : '+@pwd+'it is valid up to 2 days only. Update it!!!!!!!'
 
 insert into MailInfo values (@mail,GETDATE(),@msg)
 
